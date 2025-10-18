@@ -21,7 +21,7 @@ warnings.filterwarnings('ignore')
 print(" ARFF Machine Learning Pipeline")
 print("="*50)
 
-# --- MODIFIED BLOCK ---
+
 # Ask the user for the file path instead of uploading
 filename = input("Enter the path to your .arff file: ")
 try:
@@ -33,11 +33,10 @@ except FileNotFoundError:
 except Exception as e:
     print(f"An error occurred while reading the file: {e}")
     exit()
-# --- END OF MODIFIED BLOCK ---
+
 
 
 # Step 4: Parse .arff manually
-# (This section is unchanged)
 attributes = []
 data_section = []
 in_data = False
@@ -58,11 +57,9 @@ for line in arff_text.splitlines():
             data_section.append(values)
 
 # Step 5: Create DataFrame
-# (This section is unchanged)
 df = pd.DataFrame(data_section, columns=attributes)
 
 # Step 6: Clean data
-# (This section is unchanged)
 df.columns = df.columns.str.replace("'", "")
 df.replace('?', np.nan, inplace=True)
 
@@ -101,7 +98,6 @@ print(f"\n Dataset Preview:")
 print(tabulate(df.head(15), headers=df.columns, tablefmt="grid", showindex=True))
 
 
-# (Plotting section is unchanged)
 # Add label column for plots
 df['class_label'] = df['class'].map({0: 'Not CKD', 1: 'CKD'})
 
@@ -125,7 +121,7 @@ plt.ylabel("Records")
 plt.xlabel("CKD Status")
 
 plt.tight_layout()
-plt.show() # In VS Code, this will open a new window for the plot
+plt.show() # In VS Code, this will open a new window for plot
 
 # Correlation heatmap
 plt.figure(figsize=(14, 10))
@@ -136,12 +132,10 @@ plt.title("Correlation Heatmap of Numerical Features", fontsize=14)
 plt.show() # In VS Code, this will open a new window for the plot
 
 # Step 7: Train/Test Split
-# (This section is unchanged)
 X, y = df.drop(['class', 'class_label'], axis=1), df['class']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Step 8: Train Models
-# (This section is unchanged)
 models = {
     "Decision Tree": DecisionTreeClassifier(random_state=42),
     "Naive Bayes": GaussianNB()
@@ -163,7 +157,6 @@ for name, model in models.items():
     }
     
 # Step 9: Show Metrics
-# (This section is unchanged)
 print("\n Model Performance Comparison:")
 print("="*50)
 print(tabulate(
@@ -173,7 +166,6 @@ print(tabulate(
 ))
 
 # Step 10: Confusion Matrices
-# (This section is unchanged)
 print("\n Confusion Matrices:")
 print("="*50)
 for name in results:
@@ -181,7 +173,6 @@ for name in results:
     print(tabulate(results[name]["Confusion Matrix"], tablefmt="grid"))
 
 # Step 11: Classification Reports
-# (This section is unchanged)
 print("\n Classification Reports:")
 print("="*50)
 for name in results:
@@ -189,7 +180,6 @@ for name in results:
 
 
 # Step 13: ROC Curve and AUC
-# (This section is unchanged)
 print("\n ROC Curve and AUC Scores")
 print("="*60)
 
@@ -243,13 +233,11 @@ if hasattr(dt_model, 'feature_importances_'):
     ))
 
 # Step 13: Best Model
-# (This section is unchanged)
 best = max(results.items(), key=lambda x: x[1]["Accuracy"])
 print(f"\n Best Model: {best[0]} with Accuracy {best[1]['Accuracy']*100:.2f}%")
 print("="*50)
 
 # Step 14: Summary
-# (This section is unchanged)
 print(f"\n Summary Statistics:")
 print("="*50)
 print(f"Total samples: {len(df)}")
@@ -262,6 +250,3 @@ print(f"\n Individual Model Accuries:")
 print("="*50)
 for name, result in results.items():
     print(f"{name}: {result['Accuracy']*100:.2f}%")
-
-print("\n Project Complete!")
-print("="*50)
