@@ -1,1 +1,5 @@
 # Chronic-Kidney-Disease
+
+Chronic Kidney Disease (CKD) is a long-term condition where the kidneys don't workproperly. The kidneys help clean our blood and remove waste, but in CKD, they slowlystopworking properly. Many people don’t realize they have it until it becomes serious. That’s whyit's very important to detect CKD early, so doctors can start treatment on time. 
+In this project, we wanted to build a simple and accurate system using machine learningtopredict if a person might have CKD. We used some common lab test results like bloodpressure, creatinine (which shows kidney function), and protein levels in urine (whichshowskidney damage). These tests are often done during regular check-ups. 
+To make predictions, we used two machine learning methods: Decision Tree and Naive Bayes. The Decision Tree works like asking yes/no questions step-by-step to reach a decision. NaiveBayes uses probability to guess the most likely outcome. We cleaned and prepared the dataset, trained our models, and tested them. Then we checked how good each model was using accuracy and other scores. Naive Bayes gave the best resultsin our project.
