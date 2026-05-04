@@ -1,5 +1,46 @@
-# Chronic-Kidney-Disease
+🧠 CKD Prediction System
 
-Chronic Kidney Disease (CKD) is a long-term condition where the kidneys don't workproperly. The kidneys help clean our blood and remove waste, but in CKD, they slowlystopworking properly. Many people don’t realize they have it until it becomes serious. That’s whyit's very important to detect CKD early, so doctors can start treatment on time. 
-In this project, we wanted to build a simple and accurate system using machine learningtopredict if a person might have CKD. We used some common lab test results like bloodpressure, creatinine (which shows kidney function), and protein levels in urine (whichshowskidney damage). These tests are often done during regular check-ups. 
-To make predictions, we used two machine learning methods: Decision Tree and Naive Bayes. The Decision Tree works like asking yes/no questions step-by-step to reach a decision. NaiveBayes uses probability to guess the most likely outcome. We cleaned and prepared the dataset, trained our models, and tested them. Then we checked how good each model was using accuracy and other scores. Naive Bayes gave the best resultsin our project.
+Predict Chronic Kidney Disease using Machine Learning with a complete data pipeline.
+
+
+🚀 Overview
+
+A simple yet powerful ML project that:
+
+Cleans & preprocesses medical data
+Trains models (Decision Tree, Naive Bayes)
+Evaluates performance with metrics + ROC curve
+Finds best model automatically
+⚙️ Tech Stack
+Python
+Pandas, NumPy
+Scikit-learn
+Matplotlib, Seaborn
+📊 Features
+
+✔ Data Cleaning & Imputation
+✔ Label Encoding
+✔ Visualization (Distributions + Heatmap)
+✔ Model Comparison
+✔ ROC Curve & AUC
+✔ Feature Importance
+
+▶️ Run Locally
+pip install pandas numpy scikit-learn matplotlib seaborn tabulate
+python main.py
+
+Then enter your .arff dataset path.
+
+📈 Output
+Model performance table
+Confusion matrix
+ROC curve
+Best model selection
+🏆 Result
+
+Automatically selects the best model based on accuracy and provides deep insights into features and predictions.
+
+🔮 Future Scope
+Add more models (Random Forest, XGBoost)
+Build web app (Streamlit)
+Deploy as API
